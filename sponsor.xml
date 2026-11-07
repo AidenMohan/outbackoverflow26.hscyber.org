@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sponsors>
+  <tier id="gold" name="Gold sponsors">
+    <sponsor name="Tanto Security" url="https://tantosec.com/" image="/media/sponsors/tanto-security.png" width="600" height="375">
+      Tanto Security offers cutting-edge offensive cyber security services for top organisations across Australia, New Zealand and North America. Benefit from expert advice infused with an attacker mindset when collaborating with our certified, passionate, and experienced team. Our adversary-focused penetration testing and red teaming services empower customers to defend against evolving threats, while our specialised build pipeline security assessments simulate compromised user scenarios to identify potential vectors for supply chain attacks.<br /><br />
+      Drawing on extensive industry experience, we take a collaborative approach to drive superior results. Just as the Samurai's tantō exposed vulnerabilities in armor, our services pinpoint your most vulnerable areas to enhance your security posture. As proud supporters of the security community and returning sponsors for our third consecutive year, we're committed to fostering the growth of cybersecurity talent in Australia and New Zealand. The expertise we cultivate in our region helps protect organisations globally against emerging threats.<br /><br />
+      For more, visit <a href="https://tantosec.com/">https://tantosec.com</a>.
+    </sponsor>
+  </tier>
+  <tier id="silver" name="Silver sponsors">
+    <sponsor name="gen.xyz" url="https://gen.xyz/" image="/media/sponsors/xyz-logo-white.png" width="600" height="375">
+      .xyz is for every website, everywhere.® Gen.xyz offer the most flexible and affordable domain names to create choice for the next generation of internet users.<br /><br />
+      For more, visit <a href="https://gen.xyz/">https://gen.xyz</a>.
+    </sponsor>
+    <sponsor name="UTS Cyber Security Society" url="https://utscyber.org" image="/media/sponsors/uts-csec.png" image2="/media/sponsors/activate-uts.png" url2="https://www.activateuts.com.au" bg="white" width="600" height="375">
+      UTS Cyber Security Society (CSEC) promotes cyber security at the University of Technology Sydney with weekly events, workshops and a welcoming community for all skill levels.<br /><br />
+      Official Website: <a href="https://utscyber.org/">https://utscyber.org</a><br />
+      Activate UTS: <a href="https://www.activateuts.com.au/clubs/cyber-security-society/">https://www.activateuts.com.au/clubs/cyber-security-society/</a>
+    </sponsor>
+  </tier>
+  <tier id="bronze" name="Bronze sponsors">
+  </tier>
+  <tier id="hosting-partners" name="Hosting partners">
+    <sponsor name="Binary Lane" url="https://www.binarylane.com.au/" image="/media/sponsors/binary-lane.png" width="600" height="375">
+      BinaryLane is an Australian company that provides Virtual Private Server(VPS) and dedicated server hosting services.<br /><br />
+      BinaryLane runs on a fully proprietary cloud platform built in-house. Unlike providers reliant on third-party software, we control our entire stack—from billing systems to compute orchestration.<br /><br />
+      For more, visit <a href="https://www.binarylane.com.au/">https://www.binarylane.com.au</a>
+    </sponsor>
+  </tier>
+  <tier id="university-sponsors" name="University sponsors">
+  </tier>
+</sponsors>
