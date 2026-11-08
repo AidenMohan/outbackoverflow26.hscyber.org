@@ -55,6 +55,7 @@
           <a class="btn btn--flag" href="https://hscyber.org/discord">Join the Discord</a>
           <a class="btn btn--flag" href="javascript:void(0)" onclick='ToEvent()'>Register</a>
           <a class="btn btn--quiet" href="#how">How it works</a>
+          <a class="register-in-person" href="javascript:void(0)" onclick='ToInPersonEvent()'>Register in person in Sydney</a>
         </div>
       </div>
     </section>
@@ -85,6 +86,7 @@
           <div><dt>Who</dt><dd>Open to everyone. High school teams (verified via official school documents / school confirmation email, will be kept until the event ends) can compete for their own prizes; International participation is also welcomed.</dd></div>
           <div><dt>Cost</dt><dd>Free.</dd></div>
           <div><dt>Teams</dt><dd>Up to 4 members.</dd></div>
+          <div><dt>Prizes</dt><dd data-prizes-summary>Loading prizes...</dd></div>
           <div><dt>Format</dt><dd>A 24-hour jeopardy CTF. Challenges are released in waves throughout the event.</dd></div>
           <div><dt>Writeups</dt><dd>Writeups will be published shortly after the CTF challenge ends.</dd></div>
         </dl>
@@ -143,10 +145,7 @@
     <section class="wrap section" aria-labelledby="prizes-h">
       <div class="split">
         <h2 id="prizes-h">Prizes</h2>
-        <div>
-          <p style="font-size:1.25rem;max-width:36rem">Prizes go to the top performing high school team internationally.</p>
-          <p style="margin-top:1rem;color:var(--dust);max-width:36rem">We'll announce the details as sponsors are confirmed.</p>
-        </div>
+        <div data-prizes aria-live="polite"><p class="empty">Loading prizes...</p></div>
       </div>
     </section>
 
@@ -164,7 +163,7 @@
       <div class="panel">
         <h2 id="reg-h">Registration is now open!</h2>
         <p>Sign up at events.hscyber.org to receive email and Discord updates. Join the Discord to ask an organiser a question and find teammates.</p>
-        <div class="actions"><a class="btn btn--flag" href="javascript:void(0)" onclick='ToEvent()'>Register</a><a class="btn btn--flag" href="https://hscyber.org/discord">Join Discord</a></div>
+        <div class="actions"><a class="btn btn--flag" href="javascript:void(0)" onclick='ToEvent()'>Register</a><a class="btn btn--flag" href="https://hscyber.org/discord">Join Discord</a><a class="register-in-person" href="javascript:void(0)" onclick='ToInPersonEvent()'>Register in person in Sydney</a></div>
       </div>
     </section>
 

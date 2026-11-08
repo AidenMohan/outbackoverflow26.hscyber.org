@@ -1,5 +1,10 @@
 function ToEvent() {
-    alert("We have noticed an issue when you register via the event link, the progress is stuck at \"processing\"; At this point, confirmation emails should have been sent already, and your ticket should have been registered. Sorry for the inconvience");window.location.href="https:\/\/events.hscyber.org/event/1/ouback-overflow-26";
+    window.location.href="https://ctf.hscyber.org/register";
+}
+
+function ToInPersonEvent() {
+    alert("We have noticed an issue when you register via the event link: the progress may be stuck at \"processing\". Confirmation emails should have been sent already, and your ticket should have been registered.");
+    window.location.href="https://events.hscyber.org/event/1/ouback-overflow-26";
 }
 
 function createSponsorDescription(sponsor) {
@@ -159,6 +164,137 @@ document.addEventListener("DOMContentLoaded", function () {
                 var message = document.createElement("p");
                 message.className = "empty";
                 message.textContent = "Sponsors could not be loaded. Please try again later.";
+                container.appendChild(message);
+            });
+            console.error(error);
+        });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var prizeContainers = document.querySelectorAll("[data-prizes]");
+    var prizeSummary = document.querySelector("[data-prizes-summary]");
+    if (!prizeContainers.length && !prizeSummary) {
+        return;
+    }
+
+    fetch("./prizes.xml")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Unable to load prizes.xml (" + response.status + ")");
+            }
+            return response.text();
+        })
+        .then(function (xmlText) {
+            var documentXml = new DOMParser().parseFromString(xmlText, "application/xml");
+            if (documentXml.querySelector("parsererror")) {
+                throw new Error("prizes.xml contains invalid XML");
+            }
+
+            var root = documentXml.documentElement;
+            if (!root || root.nodeName !== "prizes") {
+                throw new Error("prizes.xml must have a prizes root element");
+            }
+
+            var categories = Array.prototype.slice.call(root.children);
+            var rankLabels = { "1": "1st", "2": "2nd", "3": "3rd" };
+            if (prizeSummary) {
+                var summaryList = document.createElement("ul");
+                summaryList.className = "prize-summary";
+                categories.forEach(function (category) {
+                    Array.prototype.slice.call(category.children).forEach(function (award) {
+                        var rank = award.getAttribute("rank");
+                        var label = rankLabels[rank] || rank;
+                        var items = Array.prototype.slice.call(award.children).map(function (item) {
+                            return (item.textContent || "").trim();
+                        });
+                        var summaryItem = document.createElement("li");
+                        var rankLabel = document.createElement("strong");
+                        rankLabel.className = "prize-rank prize-rank--" + rank;
+                        rankLabel.textContent = label;
+                        summaryItem.appendChild(rankLabel);
+                        summaryItem.appendChild(document.createTextNode(" " + items.join(", ")));
+                        summaryList.appendChild(summaryItem);
+                    });
+                });
+                if (!summaryList.children.length) {
+                    throw new Error("prizes.xml does not contain any prize categories");
+                }
+                prizeSummary.replaceChildren(summaryList);
+                var summaryLink = document.createElement("a");
+                summaryLink.href = "#prizes-h";
+                summaryLink.textContent = "See the prize details";
+                summaryLink.className = "prize-summary-link";
+                // prizeSummary.appendChild(summaryLink);
+            }
+            prizeContainers.forEach(function (container) {
+                container.replaceChildren();
+                var list = document.createElement("ul");
+                list.className = "prizes";
+
+                categories.forEach(function (category) {
+                    if (category.nodeName !== "category") {
+                        return;
+                    }
+
+                    var name = category.getAttribute("name");
+                    var awards = Array.prototype.slice.call(category.children);
+                    if (!name || !awards.length) {
+                        throw new Error("Each prize category needs a name and awards");
+                    }
+
+                    var item = document.createElement("li");
+                    var heading = document.createElement("h3");
+                    heading.textContent = name;
+                    item.appendChild(heading);
+                    var awardList = document.createElement("ul");
+                    awards.forEach(function (award) {
+                        if (award.nodeName !== "award" || !award.getAttribute("rank")) {
+                            throw new Error("Each award needs a rank and description");
+                        }
+                        var awardItem = document.createElement("li");
+                        var rankValue = award.getAttribute("rank");
+                        var rank = document.createElement("strong");
+                        rank.className = "prize-rank prize-rank--" + rankValue;
+                        rank.textContent = rankLabels[rankValue] || rankValue;
+                        awardItem.appendChild(rank);
+                        var prizeItems = Array.prototype.slice.call(award.children);
+                        if (prizeItems.length) {
+                            prizeItems.forEach(function (prizeItem) {
+                                if (prizeItem.nodeName !== "item" || !(prizeItem.textContent || "").trim()) {
+                                    throw new Error("Each prize item needs a description");
+                                }
+                                var description = document.createElement("ul");
+                                var descriptionItem = document.createElement("li");
+                                descriptionItem.textContent = (prizeItem.textContent || "").trim();
+                                description.appendChild(descriptionItem);
+                                awardItem.appendChild(description);
+                            });
+                        } else if ((award.textContent || "").trim()) {
+                            awardItem.appendChild(document.createTextNode(": " + (award.textContent || "").trim()));
+                        } else {
+                            throw new Error("Each award needs a description");
+                        }
+                        awardList.appendChild(awardItem);
+                    });
+                    item.appendChild(awardList);
+                    list.appendChild(item);
+                });
+
+                if (!list.children.length) {
+                    throw new Error("prizes.xml does not contain any prizes");
+                }
+                container.appendChild(list);
+            });
+        })
+        .catch(function (error) {
+            if (prizeSummary) {
+                prizeSummary.textContent = "Prize details could not be loaded. Please try again later.";
+            }
+            prizeContainers.forEach(function (container) {
+                container.replaceChildren();
+                var message = document.createElement("p");
+                message.className = "empty";
+                message.textContent = "Prizes could not be loaded. Please try again later.";
                 container.appendChild(message);
             });
             console.error(error);

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prizes>
+  <category name="High school team">
+    <award rank="1">
+      <item>Prize details will be announced as sponsors are confirmed.</item>
+    </award>
+    <award rank="2">
+      <item>Prize details will be announced as sponsors are confirmed.</item>
+    </award>
+    <award rank="3">
+      <item>Prize details will be announced as sponsors are confirmed.</item>
+    </award>
+  </category>
+</prizes>
