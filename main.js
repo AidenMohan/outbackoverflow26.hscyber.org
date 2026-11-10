@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             var categories = Array.prototype.slice.call(root.children);
-            var rankLabels = { "1": "1st", "2": "2nd", "3": "3rd" };
+            var rankLabels = { "1": "1st", "2": "2nd", "3": "3rd", "4": "4th", "5": "5th" };
             if (prizeSummary) {
                 var summaryList = document.createElement("ul");
                 summaryList.className = "prize-summary";
@@ -212,7 +212,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         rankLabel.className = "prize-rank prize-rank--" + rank;
                         rankLabel.textContent = label;
                         summaryItem.appendChild(rankLabel);
-                        summaryItem.appendChild(document.createTextNode(" " + items.join(", ")));
+                        var itemList = document.createElement("ul");
+                        itemList.className = "prize-summary-items";
+                        items.forEach(function (item) {
+                            var itemElement = document.createElement("li");
+                            itemElement.textContent = item;
+                            itemList.appendChild(itemElement);
+                        });
+                        summaryItem.appendChild(itemList);
                         summaryList.appendChild(summaryItem);
                     });
                 });

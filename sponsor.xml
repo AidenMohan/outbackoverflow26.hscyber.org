@@ -17,6 +17,14 @@
       Official Website: <a href="https://utscyber.org/">https://utscyber.org</a><br />
       Activate UTS: <a href="https://www.activateuts.com.au/clubs/cyber-security-society/">https://www.activateuts.com.au/clubs/cyber-security-society/</a>
     </sponsor>
+    <sponsor name="Skillbit" url="https://skillbit.com" image="/media/sponsors/skillbit.png" bg="white" width="600" height="375">
+      SkillBit is a cybersecurity skills development platform that helps individuals and organizations build, assess, and strengthen their cybersecurity capabilities. Through hands-on labs, interactive learning modules, and cybersecurity competitions, SkillBit makes practical cybersecurity training accessible and engaging for learners of all experience levels. Formerly known as MetaCTF, SkillBit has supported hundreds of organizations and hosted hundreds of cybersecurity competitions worldwide.<br /><br />
+      For more, visit <a href="https://skillbit.com">https://skillbit.com</a>
+    </sponsor>
+    <sponsor name="Active IT Prep" url="https://activeitprep.com" image="/media/sponsors/active-it-prep.png" width="600" height="375">
+      Active IT Prep is an interactive exam preparation platform featuring 25 hands on performance based question (PBQ) simulators alongside 5 comprehensive study workbooks designed for the CompTIA Network+ (N10-009) certification.<br /><br />
+      Official Website: <a href="https://activeitprep.com">https://activeitprep.com</a>
+    </sponsor>
   </tier>
   <tier id="bronze" name="Bronze sponsors">
   </tier>

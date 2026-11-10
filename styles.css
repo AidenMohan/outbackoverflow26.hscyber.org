@@ -207,9 +207,13 @@ code, .mono { font-family: var(--mono); font-size: 0.92em; background: var(--ink
 .prize-rank--1 { color: #f2c14e !important; }
 .prize-rank--2 { color: #c7d0dc !important; }
 .prize-rank--3 { color: #cd7f32 !important; }
+.prize-rank--4,
+.prize-rank--5 { color: var(--dust) !important; }
 .prize-summary { margin: 0; padding-left: 1.5rem; color: var(--dust); }
 .prize-summary li + li { margin-top: 0.45rem; }
 .prize-summary .prize-rank { font-size: 1.1em; }
+.prize-summary-items { list-style: none; margin: 0.35rem 0 0; padding: 0; }
+.prize-summary-items li + li { margin-top: 0.2rem; }
 .prize-summary-link { display: inline-block; margin-top: 1rem; color: var(--chalk); }
 
 /* time zones */
